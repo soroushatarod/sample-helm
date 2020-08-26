@@ -2,22 +2,22 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: nexus
-  namespace: devops-toolsss
+  namespace: {{ .Release.Namespace }}
 spec:
-  replicas: 1
+  replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:
-      app: nexus-server
+      app: {{ .Values.label }}
   template:
     metadata:
       labels:
-        app: nexus-server
+        app: {{ .Values.label }}
     spec:
       containers:
-        - name: nexu
-          image: sonatype/nexus3:latest
+        - name: {{ .Values.container.name }}
+          image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
           ports:
-            - containerPort: 8081
+            - containerPort: {{ .Values.container.port }}
           volumeMounts:
             - mountPath: /nexus-data
               name: nexus-data

@@ -1,6 +1,4 @@
 kind: Namespace
 apiVersion: v1
 metadata:
-  name: devops-toolsss
-  labels:
-    name: devops-toolsss
+  name: {{ .Release.Namespace }}
