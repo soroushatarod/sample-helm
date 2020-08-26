@@ -7,4 +7,4 @@ metadata:
 spec:
   containers:
     - name: water
-      image: nexus:latest
+      image: sonatype/nexus3:latest
