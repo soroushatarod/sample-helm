@@ -7,4 +7,4 @@ metadata:
 spec:
   containers:
     - name: water
-      image: paulbouwer/hello-kubernetes:{{ .Values.version }}
+      image: nexus:latest
